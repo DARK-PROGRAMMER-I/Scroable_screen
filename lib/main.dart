@@ -54,7 +54,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: screen(names[index], index));
+    return SafeArea(
+      child: screen(names[index], index),
+    );
   }
 
   Widget screen(String imgAddress, int index){
@@ -138,6 +140,20 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
+
+        Container(
+          padding: EdgeInsets.all(50),
+          width: MediaQuery.of(context).size.width,
+          child: Container(
+            alignment: Alignment.topCenter,
+            width: 70,
+              height: 150,
+              child: Image.asset(
+                  'assets/logo.png',
+              width: 150,
+              )
+          ),
+        )
       ],
     );
   }
