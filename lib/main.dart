@@ -72,8 +72,13 @@ class _HomeScreenState extends State<HomeScreen> {
             body:index == 0 ?  Align(
               alignment: Alignment.bottomRight,
               child: Container(
-                margin: EdgeInsets.all(20),
-                child: ElevatedButton(child: Text('move'), onPressed: (){
+                margin: EdgeInsets.only(bottom: 20, right: 20),
+                child: ElevatedButton(
+                    style: ButtonStyle(
+                        padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
+                        backgroundColor: MaterialStateProperty.all(Colors.green)
+                    ),
+                    child: Text('Next'), onPressed: (){
                   increment();
                 }),
               ),
@@ -84,8 +89,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: Container(
-                    margin: EdgeInsets.all(20),
-                    child: ElevatedButton(child: Text('back'), onPressed: (){
+                    margin: EdgeInsets.only(bottom: 20, left: 20),
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
+                            backgroundColor: MaterialStateProperty.all(Colors.green)
+                        ),
+                        child: Text('Back'), onPressed: (){
                       print(index);
                       decrement();
                     }),
@@ -94,10 +104,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Container(
-                    margin: EdgeInsets.all(20),
+                    margin: EdgeInsets.only(bottom: 20, right: 20),
                     child: ElevatedButton(
-
-                        child: Text(index == 2? 'continue': 'next'),
+                        style: ButtonStyle(
+                          padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
+                            backgroundColor: MaterialStateProperty.all(Colors.green)
+                        ),
+                        child: Text(index == 2? 'Continue': 'Next'),
                         onPressed: (){
                       increment();
                     }),
@@ -106,19 +119,22 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: DotsIndicator(
-            dotsCount: 3,
-            position: index.toDouble(),
-            decorator: DotsDecorator(
-                activeColor: Colors.blue,
-                size: Size.square(8),
-                activeSize: Size(20, 20),
-                activeShape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                )
+        Container(
+          margin: EdgeInsets.only(bottom: 25),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: DotsIndicator(
+              dotsCount: 3,
+              position: index.toDouble(),
+              decorator: DotsDecorator(
+                  activeColor: Colors.green,
+                  size: Size.square(8),
+                  activeSize: Size(10, 10),
+                  activeShape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  )
 
+              ),
             ),
           ),
         ),
