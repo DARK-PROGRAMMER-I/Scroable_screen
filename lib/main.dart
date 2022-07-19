@@ -27,7 +27,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> names = ["1.png",'2.png',"3.png"];
+  List<String> names = ["1.jpeg",'2.jpeg',"3.jpeg"];
   int index = 0;
   increment(){
     if(index ==2){
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen> {
           'assets/${imgAddress}',
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          fit: BoxFit.cover,
+          fit: BoxFit.fill,
         ),
         Scaffold(
             backgroundColor: Colors.transparent,
