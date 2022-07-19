@@ -27,7 +27,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<String> names = ["1.jpeg",'2.jpeg',"3.jpeg"];
+  List<String> names = ["1.jpg",'2.jpg',"3.jpg"];
   int index = 0;
   increment(){
     if(index ==2){
