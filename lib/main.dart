@@ -71,55 +71,79 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         Scaffold(
             backgroundColor: Colors.transparent,
-            body:index == 0 ?  Align(
-              alignment: Alignment.bottomRight,
-              child: Container(
-                margin: EdgeInsets.only(bottom: 20, right: 20),
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
-                        backgroundColor: MaterialStateProperty.all(Colors.green)
-                    ),
-                    child: Text('Next'), onPressed: (){
-                  increment();
-                }),
-              ),
-            ) :
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Align(
+            body: Stack(
+            children: [
+              Container(
+                height: MediaQuery.of(context).size.height,
+                alignment: Alignment.bottomCenter,
+                child: index == 0 ?  Align(
                   alignment: Alignment.bottomRight,
                   child: Container(
-                    margin: EdgeInsets.only(bottom: 20, left: 20),
+                    margin: EdgeInsets.only(bottom: 20, right: 20),
                     child: ElevatedButton(
                         style: ButtonStyle(
                             padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
                             backgroundColor: MaterialStateProperty.all(Colors.green)
                         ),
-                        child: Text('Back'), onPressed: (){
-                      print(index);
-                      decrement();
-                    }),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Container(
-                    margin: EdgeInsets.only(bottom: 20, right: 20),
-                    child: ElevatedButton(
-                        style: ButtonStyle(
-                          padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
-                            backgroundColor: MaterialStateProperty.all(Colors.green)
-                        ),
-                        child: Text(index == 2? 'Continue': 'Next'),
-                        onPressed: (){
+                        child: Text('Next'), onPressed: (){
                       increment();
                     }),
                   ),
+                ) :
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 20, left: 20),
+                        child: ElevatedButton(
+                            style: ButtonStyle(
+                                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
+                                backgroundColor: MaterialStateProperty.all(Colors.green)
+                            ),
+                            child: Text('Back'), onPressed: (){
+                          print(index);
+                          decrement();
+                        }),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 20, right: 20),
+                        child: ElevatedButton(
+                            style: ButtonStyle(
+                                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
+                                backgroundColor: MaterialStateProperty.all(Colors.green)
+                            ),
+                            child: Text(index == 2? 'Continue': 'Next'),
+                            onPressed: (){
+                              increment();
+                            }),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+              Align(
+                  child: Text('Hola', style: TextStyle(color: Color(0xff33B66B), fontSize: 30, fontWeight: FontWeight.bold),)
+              ),
+              Container(
+                padding: EdgeInsets.all(30),
+                height: MediaQuery.of(context).size.height - 250,
+                alignment: Alignment.bottomCenter,
+                child: Text('Welcome to GreenHouse... the dopest social network out! We are here to connect stoners to other stoners using interactive live group chats. Grow your following on our platform with a network where everyone is guaranteed to have one thing in common... a love for the plant.',
+                  style: TextStyle(color: Colors.white, overflow: TextOverflow.visible, fontWeight: FontWeight.bold),
+
+                ),
+              )
+
+
+    ],
+
+
+    )
         ),
         Container(
           margin: EdgeInsets.only(bottom: 25),
@@ -150,10 +174,11 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 150,
               child: Image.asset(
                   'assets/logo.png',
-              width: 150,
-              )
+              width: 200,
+              ),
           ),
-        )
+        ),
+
       ],
     );
   }
