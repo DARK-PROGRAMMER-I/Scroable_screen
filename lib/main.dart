@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: EdgeInsets.all(30),
                 height: MediaQuery.of(context).size.height - 250,
                 alignment: Alignment.bottomCenter,
-                child: Text('the dopest social network out! We are here to connect stoners to other stoners using interactive live group chats. Grow your following on our platform with a network where everyone is guaranteed to have one thing in common... a love for the plant.',
+                child: Text('the network out! We are here to connect stoners to other stoners using interactive live group chats. Grow your following on our platform with a network where everyone is guaranteed to have one thing in common... a love for the plant.',
                   style: TextStyle(color: Colors.white, overflow: TextOverflow.visible, fontWeight: FontWeight.bold),
 
                 ),
