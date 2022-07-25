@@ -113,7 +113,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 backgroundColor: MaterialStateProperty.all(Color(0xff32B66C))
                             ),
                             child: Text('Back', style: TextStyle(fontSize: 18)), onPressed: (){
-                          print(index);
                           decrement();
                         }),
                       ),
