@@ -28,6 +28,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<String> names = ["1.jpg",'2.jpg',"3.jpg"];
+  List<String> titles = [
+    'Welcome  ',
+    'Something For Everyone',
+    'A New Beginning ',
+  ];
+  List<String> descriptions = [
+    'Welcome to GreenHouse... the dopest social network out! We are here to connect stoners to other stoners using interactive live group chats. Grow your following on our platform with a network where everyone is guaranteed to have one thing in common... a love for the plant.',
+    'At GreenHouse you will find something for everyone. Whether you are here to chill, sesh with friends, catch a vibe, engage in brain stimulating conversations, or promote your business we have you covered.',
+    'GreenHouse offers a deeper level of interactions that connoisseurs of the plant have not experienced. We plan to usher in a new digital age of cannabis social media that will create a positive impact for our users that will last a lifetime. When you are ready click that “Continue” button.',
+  ];
   int index = 0;
   increment(){
     if(index ==2){
@@ -83,9 +93,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ElevatedButton(
                         style: ButtonStyle(
                             padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
-                            backgroundColor: MaterialStateProperty.all(Colors.green)
+                            backgroundColor: MaterialStateProperty.all(Color(0xffD8A72D))
                         ),
-                        child: Text('Next'), onPressed: (){
+                        child: Text('Next', style: TextStyle(fontSize: 18),), onPressed: (){
                       increment();
                     }),
                   ),
@@ -100,9 +110,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: ElevatedButton(
                             style: ButtonStyle(
                                 padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
-                                backgroundColor: MaterialStateProperty.all(Colors.green)
+                                backgroundColor: MaterialStateProperty.all(Color(0xff32B66C))
                             ),
-                            child: Text('Back'), onPressed: (){
+                            child: Text('Back', style: TextStyle(fontSize: 18)), onPressed: (){
                           print(index);
                           decrement();
                         }),
@@ -115,9 +125,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: ElevatedButton(
                             style: ButtonStyle(
                                 padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
-                                backgroundColor: MaterialStateProperty.all(Colors.green)
+                                backgroundColor: MaterialStateProperty.all(Color(0xffD8A72D))
                             ),
-                            child: Text(index == 2? 'Continue': 'Next'),
+                            child: Text(index == 2? 'Continue': 'Next', style: TextStyle(fontSize: 18)),
                             onPressed: (){
                               increment();
                             }),
@@ -127,14 +137,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Align(
-                  child: Text('Hola', style: TextStyle(color: Color(0xff33B66B), fontSize: 30, fontWeight: FontWeight.bold),)
+                  child: Text(titles[index],
+                  style: TextStyle(color: Color(0xff33B66B),
+                      fontSize: 22, fontWeight: FontWeight.bold),)
               ),
               Container(
                 padding: EdgeInsets.all(30),
                 height: MediaQuery.of(context).size.height - 250,
                 alignment: Alignment.bottomCenter,
-                child: Text('the we are here to connect stoners to other stoners using interactive live group chats. Grow your following on our platform with a network where everyone is guaranteed to have one thing in common... a love for the plant.',
-                  style: TextStyle(color: Colors.white, overflow: TextOverflow.visible, fontWeight: FontWeight.bold),
+                child: Text(descriptions[index],
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      overflow: TextOverflow.visible,
+                      fontWeight: FontWeight.bold,
+
+                  ),
 
                 ),
               )
