@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
           'assets/${imgAddress}',
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
         ),
         Scaffold(
             backgroundColor: Colors.transparent,
@@ -151,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.white,
                       overflow: TextOverflow.visible,
                       fontWeight: FontWeight.bold,
-
+                    fontSize: 14
                   ),
 
                 ),
