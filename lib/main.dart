@@ -70,7 +70,18 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget screen(String imgAddress, int index){
-
+    double h30 = MediaQuery.of(context).size.height/47.8 ;
+    double h18 =MediaQuery.of(context).size.height/47.8;
+    double h20 =MediaQuery.of(context).size.height/43.1;
+    double h14 =MediaQuery.of(context).size.height/61.5;
+    double h10 =MediaQuery.of(context).size.height/86.2;
+    double h8 =MediaQuery.of(context).size.height/107.75;
+    double w50 = MediaQuery.of(context).size.width / 7.8;
+    double w70 = MediaQuery.of(context).size.width / 5.6;
+    double w200 = MediaQuery.of(context).size.width / 1.96;
+    double h150 = MediaQuery.of(context).size.height / 5.7;
+    double h50 = MediaQuery.of(context).size.height  / 17.24;
+    double h25 = MediaQuery.of(context).size.height  / 34.48;
     return Stack(
       children: <Widget>[
         Image.asset(
@@ -89,13 +100,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: index == 0 ?  Align(
                   alignment: Alignment.bottomRight,
                   child: Container(
-                    margin: EdgeInsets.only(bottom: 20, right: 20),
+                    margin: EdgeInsets.only(bottom: h20, right: h20),
                     child: ElevatedButton(
                         style: ButtonStyle(
-                            padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
+                            padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: h30)),
                             backgroundColor: MaterialStateProperty.all(Color(0xffD8A72D))
                         ),
-                        child: Text('Next', style: TextStyle(fontSize: 18),), onPressed: (){
+                        child: Text('Next', style: TextStyle(fontSize: (MediaQuery.of(context).size.height/47.8)),), onPressed: (){
                       increment();
                     }),
                   ),
@@ -106,13 +117,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
-                        margin: EdgeInsets.only(bottom: 20, left: 20),
+                        margin: EdgeInsets.only(bottom: h20, left: h20 ),
                         child: ElevatedButton(
                             style: ButtonStyle(
-                                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
+                                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: (MediaQuery.of(context).size.height/28.7))),
                                 backgroundColor: MaterialStateProperty.all(Color(0xff32B66C))
                             ),
-                            child: Text('Back', style: TextStyle(fontSize: 18)), onPressed: (){
+                            child: Text('Back', style: TextStyle(fontSize: (MediaQuery.of(context).size.height/47.8))), onPressed: (){
                           decrement();
                         }),
                       ),
@@ -120,13 +131,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     Align(
                       alignment: Alignment.bottomLeft,
                       child: Container(
-                        margin: EdgeInsets.only(bottom: 20, right: 20),
+                        margin: EdgeInsets.only(
+                            bottom: (MediaQuery.of(context).size.height/43.1),
+                            right: (MediaQuery.of(context).size.height/43.1)),
                         child: ElevatedButton(
                             style: ButtonStyle(
-                                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 30)),
+                                padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: (MediaQuery.of(context).size.height/28.7))), // 30
                                 backgroundColor: MaterialStateProperty.all(Color(0xffD8A72D))
                             ),
-                            child: Text(index == 2? 'Continue': 'Next', style: TextStyle(fontSize: 18)),
+                            child: Text(index == 2? 'Continue': 'Next', style: TextStyle(fontSize: (MediaQuery.of(context).size.height/47.8))),
                             onPressed: (){
                               increment();
                             }),
@@ -138,11 +151,11 @@ class _HomeScreenState extends State<HomeScreen> {
               Align(
                   child: Text(titles[index],
                   style: TextStyle(color: Color(0xff33B66B),
-                      fontSize: 22, fontWeight: FontWeight.bold),)
+                      fontSize: (MediaQuery.of(context).size.height/39.1), fontWeight: FontWeight.bold),)
               ),
               Container(
-                padding: EdgeInsets.all(30),
-                height: MediaQuery.of(context).size.height - 250,
+                padding: EdgeInsets.all(h30),
+                height: MediaQuery.of(context).size.height - (MediaQuery.of(context).size.height/3.0),
                 alignment: Alignment.bottomCenter,
                 child: Text(descriptions[index],
                   textAlign: TextAlign.center,
@@ -150,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: Colors.white,
                       overflow: TextOverflow.visible,
                       fontWeight: FontWeight.bold,
-                    fontSize: 14
+                    fontSize: h14
                   ),
 
                 ),
@@ -163,7 +176,7 @@ class _HomeScreenState extends State<HomeScreen> {
     )
         ),
         Container(
-          margin: EdgeInsets.only(bottom: 25),
+          margin: EdgeInsets.only(bottom: h25),
           child: Align(
             alignment: Alignment.bottomCenter,
             child: DotsIndicator(
@@ -171,10 +184,10 @@ class _HomeScreenState extends State<HomeScreen> {
               position: index.toDouble(),
               decorator: DotsDecorator(
                   activeColor: Colors.green,
-                  size: Size.square(8),
-                  activeSize: Size(10, 10),
+                  size: Size.square(h8),
+                  activeSize: Size(h10, h10),
                   activeShape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(h10),
                   )
 
               ),
@@ -183,15 +196,15 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
 
         Container(
-          padding: EdgeInsets.all(50),
+          padding: EdgeInsets.symmetric(horizontal:w50 , vertical: h50), //7.8 , 17.24
           width: MediaQuery.of(context).size.width,
           child: Container(
             alignment: Alignment.topCenter,
-            width: 70,
-              height: 150,
+            width: w70,
+              height: h150,
               child: Image.asset(
                   'assets/logo.png',
-              width: 200,
+              width: w200,
               ),
           ),
         ),
@@ -200,3 +213,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
